@@ -17,11 +17,11 @@
          (oldcol (current-column))
          (visual-pos)
          (text-pos))
-    (cond ((eq 0 oldcol) (beginning-of-line-text))
+    (cond ((eq 0 oldcol) (back-to-indentation))
           (t (save-excursion
                 (beginning-of-visual-line)
                 (setq visual-pos (point))
-                (beginning-of-line-text)
+                (back-to-indentation)
                 (setq text-pos (point)))
               (if (and (eq oldpos visual-pos) (> visual-pos text-pos))
                   (save-excursion
